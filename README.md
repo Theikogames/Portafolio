@@ -10,8 +10,33 @@ Sitio estático (HTML/CSS/JS puro, sin frameworks ni dependencias de pago) recon
 4. En "Branch", elige `main` y la carpeta `/ (root)`, luego guarda.
 5. Espera 1-2 minutos: GitHub te dará una URL gratuita (algo como `https://tu-usuario.github.io/portafolio/`).
 
+## Usar tus gifs y video descargados (local)
+
+El HTML ya apunta a una carpeta `assets/` dentro del proyecto. Solo debes crear esta estructura y poner tus archivos descargados con estos nombres exactos (o cambiar el `src` en `index.html` si prefieres otros nombres):
+
+```
+portafolio-juan/
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── assets/
+    ├── video/
+    │   └── hero.mp4
+    └── img/
+        ├── clicker.gif
+        ├── americans-war-1.gif
+        ├── americans-war-2.gif
+        ├── plataformero.gif
+        ├── run-and-puzzle-1.gif
+        └── run-and-puzzle-2.gif
+```
+
+Para descargar los archivos originales desde Framer: entra a tu sitio publicado, clic derecho sobre cada imagen/gif → "Guardar imagen como…", y para el video del hero, clic derecho → "Guardar video como…". Luego solo arrastra cada archivo a su carpeta correspondiente respetando los nombres de arriba. Sube la carpeta `assets/` completa junto con el resto de archivos a tu repositorio de GitHub.
+
 ## Notas
 
-- Las imágenes/GIFs y el video del hero siguen cargándose desde los servidores de Framer (`framerusercontent.com`), que permanecen públicos aunque el sitio de Framer ya no esté activo. Si en algún momento quieres independencia total, descarga esos archivos y cámbialos por rutas locales (ej: `/assets/clicker.gif`).
+- El efecto de hover (zoom + líneas de escaneo) sobre los gifs se dejó únicamente en la sección de **Proyectos de PC**; en **Proyectos de Celular** está desactivado.
+- American's War y Run And Puzzle ahora muestran 2 gifs cada uno, uno junto al otro.
 - El formulario de contacto se reemplazó por un enlace `mailto:`, ya que no hay backend propio.
 - Sin dependencias externas de pago: solo usa Google Fonts (gratis) para la tipografía.
