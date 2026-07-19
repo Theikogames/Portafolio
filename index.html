@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Miralles — Programador & Diseñador de juegos</title>
+<meta name="description" content="Portafolio de Juan Miralles, programador y diseñador de videojuegos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#top" class="logo">JM<span class="cursor">_</span></a>
+  <nav class="nav-links">
+    <a href="#sobre-mi">sobre-mi</a>
+    <a href="#proyectos">proyectos</a>
+    <a href="#contacto">contacto</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="">
+      <source src="https://framerusercontent.com/assets/Dnmtfr22WAYk7rXgPFRfbPtkB0.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">$ whoami</p>
+      <h1>Juan Miralles<span class="cursor">_</span></h1>
+      <p class="role">Programador &amp; Diseñador de juegos</p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn-ghost">Contacto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MI + SKILLS -->
+  <section id="sobre-mi" class="section">
+    <p class="eyebrow">$ cat sobre-mi.txt</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Sobre Juan Miralles</h2>
+        <p>Soy programador y diseñador de juegos, tengo algo de experiencia en la creación de videojuegos, diseñando prototipos básicos en su mayoría.</p>
+        <p>Trabajo bien en equipo, suelo hacer todas las preguntas que tengo para poder entregar un trabajo lo mejor hecho posible, también aceptando las críticas constructivas y retroalimentaciones necesarias con el equipo de trabajo.</p>
+      </div>
+      <div class="skills-panel">
+        <p class="panel-title">$ ls habilidades/</p>
+        <ul class="skills-list">
+          <li>
+            <span class="skill-name">Unity</span>
+            <span class="skill-level"><span class="skill-bar" style="--level:35%"></span></span>
+            <span class="skill-tag">Básico</span>
+          </li>
+          <li>
+            <span class="skill-name">Visual Studio</span>
+            <span class="skill-level"><span class="skill-bar" style="--level:35%"></span></span>
+            <span class="skill-tag">Básico</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="section">
+    <p class="eyebrow">$ ls proyectos-universitarios/</p>
+    <h2>Proyectos universitarios</h2>
+
+    <div class="project-group">
+      <h3 class="group-title">— Proyectos de Celular</h3>
+      <div class="project-grid project-grid-portrait">
+        <article class="project-card">
+          <div class="project-screen">
+            <img src="https://framerusercontent.com/images/6l2XgGnwJJ2ZdjxjXRM7NFXvsLc.gif" alt="Gameplay del proyecto Clicker" loading="lazy">
+          </div>
+          <h4>Clicker</h4>
+        </article>
+        <article class="project-card">
+          <div class="project-screen">
+            <img src="https://framerusercontent.com/images/GV0DioTIriCPN1lW7OREXvJ50rA.gif" alt="Gameplay del proyecto American's War" loading="lazy">
+          </div>
+          <h4>American's War</h4>
+        </article>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <h3 class="group-title">— Proyectos de PC</h3>
+      <div class="project-grid project-grid-landscape">
+        <article class="project-card">
+          <div class="project-screen project-screen-wide">
+            <img src="https://framerusercontent.com/images/nNlQ7ob5yIj6lmSD8o56CwFpw.gif" alt="Gameplay del proyecto Plataformero simple" loading="lazy">
+          </div>
+          <h4>Plataformero simple</h4>
+        </article>
+        <article class="project-card">
+          <div class="project-screen project-screen-wide">
+            <img src="https://framerusercontent.com/images/7Xjq78HSU6cxRNHLfZlMXTOwAow.gif" alt="Gameplay del proyecto Run And Puzzle" loading="lazy">
+          </div>
+          <h4>Run And Puzzle</h4>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section section-contact">
+    <p class="eyebrow">$ ping juan</p>
+    <h2>Contacto</h2>
+    <a class="email-link" href="mailto:juanmirallescontacto@gmail.com">juanmirallescontacto@gmail.com</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Juan Miralles — hecho con HTML, CSS &amp; JS</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
