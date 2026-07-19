@@ -23,7 +23,10 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+
+img, video { max-width: 100%; }
 
 a { color: inherit; }
 
@@ -315,8 +318,30 @@ h3, h4 { margin: 0.4rem 0; }
 }
 
 /* ---------- Responsive ---------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .section { padding-top: 5.5rem; }
+  .about-grid { gap: 2rem; }
+}
+
+/* Celulares y tablets pequeñas en vertical */
 @media (max-width: 760px) {
   .about-grid { grid-template-columns: 1fr; }
   .nav-links { gap: 1.1rem; }
   .grid-span-2 { grid-column: span 1; }
+  .project-grid { grid-template-columns: 1fr; }
+  .section { padding-top: 5rem; padding-bottom: 2.5rem; }
+  .skills-list li { grid-template-columns: 5.5rem 1fr auto; gap: 0.5rem; }
+}
+
+/* Celulares chicos */
+@media (max-width: 480px) {
+  .nav { padding: 0.9rem 1.2rem; }
+  .nav-links { gap: 0.9rem; }
+  .nav-links a { font-size: 0.78rem; }
+  .section { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .project-screens.screens-2 { grid-template-columns: 1fr; }
+  .skills-list li { grid-template-columns: 1fr auto; row-gap: 0.3rem; }
+  .skill-level { grid-column: 1 / -1; }
 }
