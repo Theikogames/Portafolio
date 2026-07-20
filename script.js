@@ -1,3 +1,10 @@
+// Evita que el navegador (sobre todo en celular) reabra la página
+// en la posición de scroll donde quedó la última vez
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.addEventListener('load', () => window.scrollTo(0, 0));
+
 // Resalta el link de navegación de la sección visible
 const sections = document.querySelectorAll('main section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
