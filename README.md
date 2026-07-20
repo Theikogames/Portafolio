@@ -47,9 +47,9 @@ Para descargar los archivos originales desde Framer: entra a tu sitio publicado,
 
 En `index.html`, dentro de la sección `id="contacto"`, cada ícono es un link `<a href="...">`. Ya están casi listos, solo debes reemplazar dos partes:
 
-- **Gmail**: ya está enlazado a tu correo (`juanmirallescontacto@gmail.com`). Al hacer clic, abre directamente un mensaje nuevo en Gmail dirigido a ti. Si quieres usar otro correo, cambia la parte `to=juanmirallescontacto@gmail.com` de esta línea:
+- **Gmail**: en vez de abrir un link, el botón **copia tu correo al portapapeles** al hacer clic (aparece un mensaje "¡Copiado!" arriba del ícono por 1.5 segundos). Si prefieres que en vez de copiar abra Gmail directo con un mensaje nuevo, dímelo y lo cambiamos. Para actualizar el correo que se copia, cambia el valor de `data-email` en esta línea:
   ```html
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=TU-CORREO-AQUI" ...>
+  <button ... data-email="TU-CORREO-AQUI">
   ```
 
 - **LinkedIn**: busca la línea con `TU-USUARIO-AQUI` en el link de LinkedIn y reemplázalo por tu nombre de usuario real. Lo encuentras en la URL de tu propio perfil, por ejemplo si tu perfil es `https://www.linkedin.com/in/juan-miralles-123abc`, entonces:

@@ -303,6 +303,7 @@ h3, h4 { margin: 0.4rem 0; }
 }
 
 .contact-icon {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,6 +313,9 @@ h3, h4 { margin: 0.4rem 0; }
   border: 1px solid var(--line);
   background: var(--panel);
   transition: border-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
 }
 .contact-icon:hover {
   border-color: var(--accent);
@@ -321,6 +325,36 @@ h3, h4 { margin: 0.4rem 0; }
   width: 26px;
   height: 26px;
   object-fit: contain;
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--accent);
+  color: #0d1410;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.copy-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--accent);
+}
+.copy-tooltip.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ---------- Footer ---------- */
