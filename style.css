@@ -222,26 +222,39 @@ h3, h4 { margin: 0.4rem 0; }
 }
 
 /* ---------- Proyectos ---------- */
-.project-group { margin-top: 2.6rem; }
-.group-title {
-  font-family: var(--font-display);
-  color: var(--fg-dim);
-  font-weight: 400;
-  font-size: 0.95rem;
-  margin-bottom: 1.2rem;
+.project-slider-wrap {
+  position: relative;
+  margin-top: 1.6rem;
 }
 
-.project-grid {
+.project-slider {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1.8rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  padding: 0.2rem 0.2rem 1.2rem;
+  margin: 0 -0.2rem;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
+.project-slider.dragging { cursor: grabbing; scroll-snap-type: none; }
 
-.project-card { text-align: left; }
+.project-slider::-webkit-scrollbar { height: 7px; }
+.project-slider::-webkit-scrollbar-track { background: transparent; }
+.project-slider::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+
+.project-card {
+  text-align: left;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
 
 .project-screens {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.6rem;
 }
 
@@ -250,13 +263,21 @@ h3, h4 { margin: 0.4rem 0; }
   border-radius: 8px;
   border: 1px solid var(--line);
   overflow: hidden;
-  width: clamp(160px, 38vw, 260px);
-  aspect-ratio: 4 / 3;
   background: #000;
   flex: 0 0 auto;
+  user-select: none;
 }
-.project-grid-portrait .project-screen {
+
+/* Celular: resolución vertical, más angosta */
+.project-screen-portrait {
+  width: clamp(150px, 34vw, 210px);
   aspect-ratio: 3 / 4;
+}
+
+/* PC: resolución horizontal, más ancha */
+.project-screen-wide {
+  width: clamp(220px, 46vw, 320px);
+  aspect-ratio: 4 / 3;
 }
 
 .project-screen img {
@@ -265,6 +286,7 @@ h3, h4 { margin: 0.4rem 0; }
   object-fit: contain;
   display: block;
   transition: transform 0.4s ease, filter 0.4s ease;
+  pointer-events: none;
 }
 
 .project-screen::after {
@@ -282,14 +304,40 @@ h3, h4 { margin: 0.4rem 0; }
 }
 
 /* El efecto de hover (zoom + scanlines) queda solo en PC, no en Celular */
-.project-grid-landscape .project-card:hover .project-screen img { transform: scale(1.04); }
-.project-grid-landscape .project-card:hover .project-screen::after { opacity: 1; }
+.project-card-pc:hover .project-screen img { transform: scale(1.04); }
+.project-card-pc:hover .project-screen::after { opacity: 1; }
 
 .project-card h4 {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
   margin-top: 0.8rem;
+}
+
+/* Flechas del slider */
+.slider-arrow {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.slider-arrow:hover { border-color: var(--accent); color: var(--accent); }
+.slider-arrow-prev { left: -1.2rem; }
+.slider-arrow-next { right: -1.2rem; }
+
+@media (max-width: 640px) {
+  .slider-arrow { display: none; }
 }
 
 /* ---------- Contacto ---------- */
