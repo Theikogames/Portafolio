@@ -85,9 +85,9 @@ h3, h4 { margin: 0.4rem 0; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 40;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
   padding: 1.1rem 5vw;
   background: linear-gradient(to bottom, rgba(18,20,26,0.9), rgba(18,20,26,0));
   backdrop-filter: blur(2px);
@@ -101,6 +101,8 @@ h3, h4 { margin: 0.4rem 0; }
 }
 
 .nav-links {
+  grid-column: 2;
+  justify-self: center;
   display: flex;
   gap: 1.8rem;
 }
@@ -111,6 +113,38 @@ h3, h4 { margin: 0.4rem 0; }
   transition: color 0.2s ease;
 }
 .nav-links a:hover { color: var(--accent); }
+
+/* Ícono de mail duplicado en el nav, arriba a la derecha (misma función que el de Contacto) */
+.nav-mail {
+  grid-column: 3;
+  justify-self: end;
+  width: 40px;
+  height: 40px;
+}
+.nav-mail img {
+  width: 18px;
+  height: 18px;
+}
+/* En el nav el tooltip se muestra hacia abajo, ya que arriba no hay espacio */
+.nav-mail .copy-tooltip {
+  top: calc(100% + 10px);
+  bottom: auto;
+  transform: translateX(-50%) translateY(-4px);
+}
+.nav-mail .copy-tooltip::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: var(--accent);
+}
+.nav-mail .copy-tooltip.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 480px) {
+  .nav-mail { width: 34px; height: 34px; }
+  .nav-mail img { width: 15px; height: 15px; }
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -221,36 +255,17 @@ h3, h4 { margin: 0.4rem 0; }
 }
 
 /* ---------- Proyectos ---------- */
-.project-slider-wrap {
-  position: relative;
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
   margin-top: 1.6rem;
 }
 
-.project-slider {
-  display: flex;
-  gap: 1.8rem;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  scroll-behavior: smooth;
-  padding: 0.2rem 0.2rem 1.2rem;
-  margin: 0 -0.2rem;
-  cursor: grab;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
-}
-.project-slider.dragging { cursor: grabbing; scroll-snap-type: none; }
-
-.project-slider::-webkit-scrollbar { height: 7px; }
-.project-slider::-webkit-scrollbar-track { background: transparent; }
-.project-slider::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
-
 .project-card {
   text-align: left;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
   display: flex;
-  width: min(700px, 86vw);
+  width: 100%;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--panel);
@@ -259,7 +274,7 @@ h3, h4 { margin: 0.4rem 0; }
 
 .project-media {
   position: relative;
-  flex: 0 0 42%;
+  flex: 0 0 34%;
   aspect-ratio: 3 / 4;
   background: #000;
   overflow: hidden;
@@ -314,32 +329,6 @@ h3, h4 { margin: 0.4rem 0; }
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 0.32rem 0.6rem;
-}
-
-/* Flechas del slider */
-.slider-arrow {
-  position: absolute;
-  top: 42%;
-  transform: translateY(-50%);
-  width: 2.4rem;
-  height: 2.4rem;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  color: var(--fg);
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 2;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-.slider-arrow:hover { border-color: var(--accent); color: var(--accent); }
-.slider-arrow-prev { left: -1.2rem; }
-.slider-arrow-next { right: -1.2rem; }
-
-@media (max-width: 640px) {
-  .slider-arrow { display: none; }
 }
 
 /* ---------- Contacto ---------- */
@@ -447,7 +436,7 @@ h3, h4 { margin: 0.4rem 0; }
 
   .project-card {
     flex-direction: column;
-    width: 84vw;
+    width: 100%;
   }
   .project-media {
     flex-basis: auto;
